@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>山野医道 · 商业计划书</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a18;
+  --ink-mid: #3d3d38;
+  --ink-soft: #6b6b62;
+  --ink-faint: #9d9d92;
+  --paper: #fafaf7;
+  --paper-warm: #f4f3ee;
+  --paper-card: #ffffff;
+  --sage: #3d6b52;
+  --sage-light: #e8f0eb;
+  --sage-mid: #6b9e80;
+  --earth: #8b5e3c;
+  --earth-light: #f2e8df;
+  --sky: #2c5f8a;
+  --sky-light: #deeaf5;
+  --alert: #c0392b;
+  --alert-light: #fbeaea;
+  --gold: #b07d2e;
+  --gold-light: #f7f0de;
+  --border: #e4e3dc;
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.06);
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+  --r: 10px;
+  --r-lg: 16px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans SC', -apple-system, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* ── COVER ── */
+.cover-page {
+  min-height: 100vh;
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 80px 60px;
+}
+
+.cover-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 75% 30%, rgba(61,107,82,0.3) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 20% 70%, rgba(44,95,138,0.2) 0%, transparent 60%);
+}
+
+.cover-texture {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.cover-content { position: relative; z-index: 1; max-width: 900px; }
+
+.cover-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sage-mid);
+  border: 1px solid rgba(107,158,128,0.4);
+  padding: 6px 16px;
+  border-radius: 30px;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.cover-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(52px, 8vw, 80px);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.cover-subtitle {
+  font-size: 20px;
+  color: rgba(255,255,255,0.55);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  margin-bottom: 60px;
+}
+
+.cover-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--sage);
+  margin-bottom: 40px;
+}
+
+.cover-stats {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.cover-stat-num {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.cover-stat-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.1em;
+}
+
+.cover-footer {
+  position: absolute;
+  bottom: 40px;
+  right: 80px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.1em;
+}
+
+/* ── LAYOUT ── */
+.doc { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+
+/* ── SECTION HEADER ── */
+.section-intro {
+  padding: 80px 0 50px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 60px;
+}
+
+.section-tag {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sage);
+  font-weight: 500;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-tag::after {
+  content: '';
+  flex: 0 0 30px;
+  height: 1px;
+  background: var(--sage);
+}
+
+.section-h {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.section-lead {
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.9;
+  max-width: 680px;
+}
+
+/* ── CARDS ── */
+.card {
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-accent {
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  border-left: 3px solid var(--sage);
+}
+
+.card-dark {
+  background: var(--ink);
+  color: #ffffff;
+  border-radius: var(--r-lg);
+  padding: 32px;
+}
+
+/* ── GRIDS ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+/* ── STAT BOXES ── */
+.stat-hero {
+  text-align: center;
+  padding: 36px 24px;
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-hero-num {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-hero-unit {
+  font-size: 18px;
+  color: var(--sage);
+}
+
+.stat-hero-label {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+/* ── TAGS ── */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  margin: 2px;
+}
+
+.tag-sage { background: var(--sage-light); color: var(--sage); }
+.tag-sky { background: var(--sky-light); color: var(--sky); }
+.tag-earth { background: var(--earth-light); color: var(--earth); }
+.tag-gold { background: var(--gold-light); color: var(--gold); }
+.tag-alert { background: var(--alert-light); color: var(--alert); }
+.tag-ink { background: var(--paper-warm); color: var(--ink-mid); }
+
+/* ── CHAPTER DIVIDER ── */
+.chapter {
+  background: var(--paper-warm);
+  padding: 60px 80px;
+  margin: 0 -40px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.chapter-num {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 12px;
+}
+
+.chapter-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ── INLINE HEADING ── */
+.h2 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 48px 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.h2::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 20px;
+  background: var(--sage);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink-mid);
+  margin: 24px 0 12px;
+  letter-spacing: 0.02em;
+}
+
+/* ── INSIGHT BOX ── */
+.insight {
+  background: linear-gradient(135deg, var(--sage-light), var(--paper-card));
+  border: 1px solid rgba(61,107,82,0.2);
+  border-left: 3px solid var(--sage);
+  border-radius: var(--r);
+  padding: 24px 28px;
+  margin: 28px 0;
+}
+
+.insight-label {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.insight p { font-size: 14px; color: var(--ink-mid); line-height: 1.8; margin: 0; }
+
+/* ── RISK BOX ── */
+.risk-callout {
+  background: var(--alert-light);
+  border: 1px solid rgba(192,57,43,0.15);
+  border-left: 3px solid var(--alert);
+  border-radius: var(--r);
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+
+.risk-callout p { font-size: 13.5px; color: var(--ink-mid); margin: 0; }
+
+/* ── TABLE ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 20px 0;
+}
+
+th {
+  background: var(--ink);
+  color: rgba(255,255,255,0.9);
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+th:first-child { border-radius: 8px 0 0 0; }
+th:last-child { border-radius: 0 8px 0 0; }
+
+td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink-mid);
+}
+
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--paper-warm); }
+
+.td-num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--ink); }
+.tr-total td { font-weight: 700; color: var(--ink); background: var(--paper-warm); }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 28px; }
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--border);
+}
+
+.tl-item {
+  position: relative;
+  margin-bottom: 36px;
+}
+
+.tl-dot {
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--sage);
+  border: 2px solid var(--paper);
+  box-shadow: 0 0 0 2px var(--sage);
+}
+
+.tl-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.tl-title { font-weight: 600; color: var(--ink); margin-bottom: 8px; font-size: 15px; }
+.tl-body { font-size: 13.5px; color: var(--ink-soft); line-height: 1.8; }
+
+/* ── METRIC BADGE ── */
+.metric-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.metric-badge {
+  padding: 14px 22px;
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+}
+
+.metric-badge-num {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.metric-badge-label {
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin-top: 4px;
+}
+
+/* ── FEATURE CARDS ── */
+.feature-card {
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.feature-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.feature-title {
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.feature-body { font-size: 13px; color: var(--ink-soft); line-height: 1.8; }
+
+/* ── COMPETITOR CARD ── */
+.comp-card {
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.comp-head {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.comp-type { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 4px; font-weight: 600; }
+.comp-name { font-size: 17px; font-weight: 600; color: var(--ink); }
+.comp-body { padding: 20px 24px; }
+
+.comp-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: var(--ink-mid);
+  align-items: flex-start;
+}
+
+.comp-icon { flex-shrink: 0; width: 18px; text-align: center; font-size: 13px; }
+
+.comp-opp {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: var(--sage-light);
+  border-radius: 8px;
+  font-size: 12.5px;
+  color: var(--sage);
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+/* ── MEMBER CARD ── */
+.member-card {
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.member-card.founder {
+  border-top: 2px solid var(--sage);
+}
+
+.member-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.av-sage { background: linear-gradient(135deg, var(--sage), var(--sage-mid)); }
+.av-sky { background: linear-gradient(135deg, var(--sky), #4a8ec0); }
+.av-earth { background: linear-gradient(135deg, var(--earth), #c07d5e); }
+.av-gold { background: linear-gradient(135deg, var(--gold), #d4a447); }
+.av-purple { background: linear-gradient(135deg, #6b52a8, #9077cc); }
+.av-ink { background: linear-gradient(135deg, var(--ink), var(--ink-mid)); }
+
+.member-header { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 16px; }
+.member-name { font-weight: 700; font-size: 17px; color: var(--ink); }
+.member-role { font-size: 12px; color: var(--sage); font-weight: 500; margin-top: 2px; }
+.member-dept { font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
+.member-body { font-size: 13px; color: var(--ink-soft); line-height: 1.85; }
+.member-highlight { margin-top: 14px; padding: 12px 16px; background: var(--sage-light); border-radius: 8px; font-size: 12.5px; color: var(--sage); font-weight: 500; }
+
+.founder-badge {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--sage);
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* ── FINANCE TABLE WRAPPER ── */
+.finance-section { margin: 40px 0; }
+
+.scenario-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.stab {
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  cursor: pointer;
+  background: var(--paper-card);
+  color: var(--ink-soft);
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.stab.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+/* ── PRICING CARDS ── */
+.price-card {
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  text-align: center;
+}
+
+.price-label { font-size: 12px; color: var(--ink-faint); letter-spacing: 0.05em; margin-bottom: 12px; }
+.price-num { font-family: 'Noto Serif SC', serif; font-size: 32px; font-weight: 700; color: var(--ink); }
+.price-sub { font-size: 12px; color: var(--ink-soft); margin-top: 8px; line-height: 1.7; }
+
+/* ── PHASE CARDS ── */
+.phase-card {
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.phase-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sage), var(--sage-mid));
+}
+
+.phase-num { font-size: 11px; color: var(--sage); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 8px; }
+.phase-title { font-weight: 700; font-size: 16px; color: var(--ink); margin-bottom: 16px; }
+.phase-item { font-size: 13px; color: var(--ink-soft); margin-bottom: 8px; padding-left: 16px; position: relative; line-height: 1.7; }
+.phase-item::before { content: '—'; position: absolute; left: 0; color: var(--sage-mid); }
+
+/* ── EXIT CARDS ── */
+.exit-card {
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px;
+}
+
+.exit-badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.exit-title { font-weight: 700; font-size: 16px; color: var(--ink); margin-bottom: 12px; }
+.exit-body { font-size: 13px; color: var(--ink-soft); line-height: 1.8; }
+.exit-trigger { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--ink-faint); }
+.exit-trigger strong { color: var(--ink-mid); }
+
+/* ── UNIT ECONOMICS ── */
+.ue-card {
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 22px;
+}
+
+.ue-label { font-size: 12px; color: var(--ink-soft); margin-bottom: 8px; line-height: 1.6; }
+.ue-num { font-family: 'Noto Serif SC', serif; font-size: 26px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.ue-sub { font-size: 11px; color: var(--ink-faint); line-height: 1.7; }
+
+/* ── BAR CHART ── */
+.bar-wrap { margin: 20px 0; }
+.bar-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.bar-name { width: 60px; font-size: 12px; color: var(--ink-mid); text-align: right; flex-shrink: 0; }
+.bar-track { flex: 1; height: 28px; background: var(--paper-warm); border-radius: 4px; overflow: hidden; }
+.bar-fill { height: 100%; display: flex; align-items: center; padding: 0 10px; border-radius: 4px; }
+.bar-val { font-size: 11.5px; font-weight: 600; white-space: nowrap; }
+
+/* ── POLICY LIST ── */
+.policy-item {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+
+.policy-item:last-child { border-bottom: none; }
+.policy-year { flex-shrink: 0; font-size: 12px; font-weight: 600; color: var(--sage); padding-top: 2px; width: 60px; }
+.policy-title { font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 4px; }
+.policy-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.7; }
+
+/* ── RISK TABLE ── */
+.risk-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+
+.risk-row:last-child { border-bottom: none; }
+.risk-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+.risk-name { font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 4px; }
+.risk-desc { font-size: 12.5px; color: var(--ink-soft); line-height: 1.7; }
+.risk-response { font-size: 12.5px; color: var(--ink-mid); line-height: 1.8; }
+
+/* ── LIFECYCLE ── */
+.lc-stage {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  margin-bottom: 1px;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.lc-left {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--paper-warm);
+}
+
+.lc-stage-name { font-weight: 700; font-size: 16px; color: var(--ink); }
+.lc-stage-en { font-size: 11px; color: var(--ink-faint); }
+
+.lc-right {
+  padding: 20px 24px;
+  background: var(--paper-card);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.lc-col-title { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+.lc-col-val { font-size: 13px; color: var(--ink-mid); line-height: 1.7; }
+
+/* ── KPIS ── */
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0; }
+.kpi-card { background: var(--paper-card); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; text-align: center; }
+.kpi-num { font-family: 'Noto Serif SC', serif; font-size: 28px; font-weight: 700; color: var(--sage); }
+.kpi-label { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+.kpi-period { font-size: 11px; color: var(--ink-faint); margin-top: 2px; }
+
+/* ── DATA DASHBOARD ── */
+.dash-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.dash-card { background: var(--paper-card); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; }
+.dash-title { font-size: 12px; font-weight: 600; color: var(--ink-mid); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.dash-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dash-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 12.5px; }
+.dash-row:last-child { border-bottom: none; }
+.dash-metric { color: var(--ink-mid); }
+.dash-val { font-weight: 600; color: var(--sage); }
+.dash-action { font-size: 11.5px; color: var(--ink-soft); }
+
+/* ── QUOTE CARD ── */
+.quote-card {
+  background: var(--paper-warm);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.quote-text { font-size: 13.5px; color: var(--ink-mid); line-height: 1.8; font-style: italic; margin-bottom: 10px; }
+.quote-source { font-size: 11px; color: var(--ink-faint); }
+.quote-arrow { margin-top: 10px; font-size: 13px; color: var(--sage); font-weight: 500; font-style: normal; }
+
+/* ── FOOTNOTES ── */
+.footnotes { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+.fn-item { font-size: 11.5px; color: var(--ink-faint); line-height: 1.8; margin-bottom: 6px; }
+
+/* ── SEPARATOR ── */
+.sep { height: 1px; background: var(--border); margin: 48px 0; }
+
+/* ── DISCLAIMER ── */
+.disclaimer {
+  background: var(--paper-warm);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 20px 24px;
+  font-size: 11.5px;
+  color: var(--ink-faint);
+  line-height: 1.8;
+  margin: 40px 0;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .cover-page { padding: 60px 32px 40px; }
+  .doc { padding: 0 20px; }
+  .chapter { padding: 40px 20px; margin: 0 -20px; }
+  .grid-2, .grid-3, .grid-4, .kpi-grid, .dash-grid { grid-template-columns: 1fr; }
+  .lc-right { grid-template-columns: 1fr; }
+  .lc-stage { grid-template-columns: 1fr; }
+  .risk-row { grid-template-columns: 1fr; }
+  .cover-stats { gap: 32px; }
+}
+
+/* ── PRINT ── */
+@media print {
+  .cover-page { min-height: unset; padding: 60px; }
+  body { font-size: 13px; }
+}
+
+p { margin-bottom: 14px; }
+ul { padding-left: 20px; }
+li { margin-bottom: 8px; color: var(--ink-mid); font-size: 14px; line-height: 1.7; }
+strong { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<!-- ════════════════ 封面 ════════════════ -->
+<div class="cover-page">
+  <div class="cover-bg"></div>
+  <div class="cover-texture"></div>
+  <div class="cover-content">
+    <div class="cover-tag">商业计划书 · 天使轮融资 · 2026年4月</div>
+    <div class="cover-title">山野医道</div>
+    <div class="cover-subtitle">户外安全智能守护平台</div>
+    <div class="cover-divider"></div>
+    <div class="cover-stats">
+      <div>
+        <div class="cover-stat-num">4亿<span style="font-size:18px;color:rgba(255,255,255,0.4)">+</span></div>
+        <div class="cover-stat-label">户外运动参与人数</div>
+      </div>
+      <div>
+        <div class="cover-stat-num">473<span style="font-size:18px;color:rgba(255,255,255,0.4)">起</span></div>
+        <div class="cover-stat-label">2025年户外事故</div>
+      </div>
+      <div>
+        <div class="cover-stat-num">20<span style="font-size:18px;color:rgba(255,255,255,0.4)">万元</span></div>
+        <div class="cover-stat-label">天使轮融资需求</div>
+      </div>
+      <div>
+        <div class="cover-stat-num">10<span style="font-size:18px;color:rgba(255,255,255,0.4)">%</span></div>
+        <div class="cover-stat-label">出让股权比例</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">CONFIDENTIAL · FUDAN UNIVERSITY</div>
+</div>
+
+<div class="doc">
+
+<!-- ════════════════ 执行摘要 ════════════════ -->
+<div class="section-intro">
+  <div class="section-tag">Section 01</div>
+  <div class="section-h">执行摘要</div>
+  <div class="section-lead">山野医道是一家专注于户外安全的科技创业公司，以离线AI急救为核心壁垒，构建覆盖C端用户、B端机构、G端政府的完整商业闭环。</div>
+</div>
+
+<div class="grid-2" style="margin-bottom:20px;">
+  <div class="card-accent">
+    <div class="h3">公司概况</div>
+    <p style="font-size:14px;color:var(--ink-soft)">山野医道 APP 整合<strong>行前风险感知</strong>、<strong>安全知识社区</strong>、<strong>离线AI急救</strong>三大功能模块，构建完整的户外安全生态闭环。核心技术壁垒：端侧离线AI急救系统，无需网络即可提供专业急救指导，填补市场空白。</p>
+  </div>
+  <div class="card-accent">
+    <div class="h3">核心痛点与解决方案</div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-bottom:10px;"><strong>痛点：</strong>中国4亿+户外参与者面临三大困境：事故频发（2025年473起）、急救知识匮乏、离线场景无信号无法求助。</p>
+    <p style="font-size:14px;color:var(--ink-soft);margin:0"><strong>方案：</strong>离线AI急救系统——无需网络，提供语音引导式专业急救指导。</p>
+  </div>
+</div>
+
+<div class="grid-4" style="margin-bottom:20px;">
+  <div class="stat-hero">
+    <div class="stat-hero-num">¥20<span class="stat-hero-unit">万</span></div>
+    <div class="stat-hero-label">天使轮融资</div>
+  </div>
+  <div class="stat-hero">
+    <div class="stat-hero-num">10<span class="stat-hero-unit">%</span></div>
+    <div class="stat-hero-label">出让股权</div>
+  </div>
+  <div class="stat-hero">
+    <div class="stat-hero-num">3<span class="stat-hero-unit">年</span></div>
+    <div class="stat-hero-label">预计盈亏平衡</div>
+  </div>
+  <div class="stat-hero">
+    <div class="stat-hero-num">5000<span class="stat-hero-unit">万+</span></div>
+    <div class="stat-hero-label">5年估值目标</div>
+  </div>
+</div>
+
+<div class="card-dark" style="margin-bottom:20px;">
+  <div class="h3" style="color:rgba(255,255,255,0.7);margin-top:0">核心竞争优势</div>
+  <div class="grid-2" style="gap:16px;">
+    <div>
+      <div style="font-weight:600;color:#fff;margin-bottom:6px;font-size:14px;">🔒 技术壁垒</div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.6);margin:0">离线AI急救算法（端侧模型，专利申请中），无需网络环境即可运行。</p>
+    </div>
+    <div>
+      <div style="font-weight:600;color:#fff;margin-bottom:6px;font-size:14px;">👥 团队优势</div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.6);margin:0">复旦大学跨学科精英团队，医学+CS+商科+设计四维能力无缝融合。</p>
+    </div>
+    <div>
+      <div style="font-weight:600;color:#fff;margin-bottom:6px;font-size:14px;">📊 商业模式</div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.6);margin:0">C端（按天计费）+ B端（SaaS授权）+ G端（驿站集成）三端联动。</p>
+    </div>
+    <div>
+      <div style="font-weight:600;color:#fff;margin-bottom:6px;font-size:14px;">📈 先发优势</div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.6);margin:0">目标场景无直接竞争者，UGC数据飞轮越用越精准，护城河持续加深。</p>
+    </div>
+  </div>
+</div>
+
+<div class="insight">
+  <div class="insight-label">资金用途</div>
+  <p>产品研发 <strong>40%</strong>（¥8万）· 市场推广 <strong>30%</strong>（¥6万）· 团队建设 <strong>20%</strong>（¥4万）· 运营储备 <strong>10%</strong>（¥2万）</p>
+</div>
+
+<!-- ════════════════ 市场分析 ════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Section 02</div>
+  <div class="chapter-title">市场分析 · 一个正在爆发的赛道</div>
+</div>
+
+<div class="section-intro" style="padding-top:40px;">
+  <div class="section-lead">中国户外运动正处于参与人数爆发式增长、事故总量同步攀升的历史窗口期。市场规模快速扩大，而安全基础设施的供给严重滞后——这是山野医道的市场机会所在。</div>
+</div>
+
+<div class="grid-4" style="margin-bottom:40px;">
+  <div class="stat-hero">
+    <div class="stat-hero-num">4<span class="stat-hero-unit">亿+</span></div>
+    <div class="stat-hero-label">2024年户外运动参与人数</div>
+  </div>
+  <div class="stat-hero">
+    <div class="stat-hero-num">33.5<span class="stat-hero-unit">万家</span></div>
+    <div class="stat-hero-label">户外运动相关注册企业</div>
+  </div>
+  <div class="stat-hero">
+    <div class="stat-hero-num">2139<span class="stat-hero-unit">亿元</span></div>
+    <div class="stat-hero-label">2024年露营市场规模</div>
+  </div>
+  <div class="stat-hero">
+    <div class="stat-hero-num">9700<span class="stat-hero-unit">亿元</span></div>
+    <div class="stat-hero-label">2024年冰雪运动产业规模</div>
+  </div>
+</div>
+
+<div class="h2">事故数据：市场爆发，风险同步激增</div>
+
+<div class="grid-3" style="margin-bottom:24px;">
+  <div class="card">
+    <div style="font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:8px;">2023年</div>
+    <div style="font-family:'Noto Serif SC',serif;font-size:36px;font-weight:700;color:var(--gold);margin-bottom:6px;">425 <span style="font-size:16px">起</span></div>
+    <div style="font-size:13px;color:var(--ink-soft);line-height:1.7;">受伤 320人 · 死亡 156人 · 失踪 26人<br>涉及人员 1350人</div>
+  </div>
+  <div class="card">
+    <div style="font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:8px;">2024年</div>
+    <div style="font-family:'Noto Serif SC',serif;font-size:36px;font-weight:700;color:var(--sage);margin-bottom:6px;">335 <span style="font-size:16px">起</span> <span style="font-size:14px;color:var(--sage);">↓21%</span></div>
+    <div style="font-size:13px;color:var(--ink-soft);line-height:1.7;">受伤 92人 · 死亡 84人 · 失踪 11人<br>山地占 93.4%，徒步占 73%</div>
+  </div>
+  <div class="card" style="border-color:var(--alert);border-width:1.5px;">
+    <div style="font-size:13px;font-weight:600;color:var(--alert);margin-bottom:8px;">2025年 — 创近年新高</div>
+    <div style="font-family:'Noto Serif SC',serif;font-size:36px;font-weight:700;color:var(--alert);margin-bottom:6px;">473 <span style="font-size:16px">起</span> <span style="font-size:14px;">↑41%</span></div>
+    <div style="font-size:13px;color:var(--ink-soft);line-height:1.7;">受伤 272人 · 死亡 131人 · 失踪 37人<br>山地事故占比超八成</div>
+  </div>
+</div>
+
+<div class="h3">2025年事故类型分布（前五位，合计占87%）</div>
+<div class="bar-wrap">
+  <div class="bar-item">
+    <div class="bar-name">被困</div>
+    <div class="bar-track"><div class="bar-fill" style="width:65%;background:var(--earth-light)"><span class="bar-val" style="color:var(--earth)">133起 · 28%</span></div></div>
+  </div>
+  <div class="bar-item">
+    <div class="bar-name">迷路</div>
+    <div class="bar-track"><div class="bar-fill" style="width:43%;background:var(--earth-light)"><span class="bar-val" style="color:var(--earth)">79起 · 17%</span></div></div>
+  </div>
+  <div class="bar-item">
+    <div class="bar-name">滑坠</div>
+    <div class="bar-track"><div class="bar-fill" style="width:38%;background:var(--alert-light)"><span class="bar-val" style="color:var(--alert)">75起 · 16%</span></div></div>
+  </div>
+  <div class="bar-item">
+    <div class="bar-name">失联</div>
+    <div class="bar-track"><div class="bar-fill" style="width:34%;background:var(--alert-light)"><span class="bar-val" style="color:var(--alert)">~14%</span></div></div>
+  </div>
+  <div class="bar-item">
+    <div class="bar-name">摔倒</div>
+    <div class="bar-track"><div class="bar-fill" style="width:28%;background:var(--sky-light)"><span class="bar-val" style="color:var(--sky)">~12%</span></div></div>
+  </div>
+</div>
+
+<div class="insight">
+  <div class="insight-label">关键洞察</div>
+  <p>被困、迷路、失联三类事故合计占 <strong>59%</strong>，共同特征是<strong>发生于信号盲区、等待救援时间长达数小时</strong>。这段"空窗期"正是山野医道离线AI急救功能的精准切入场景。</p>
+</div>
+
+<div class="h2">政策环境：多部委联合推动，安全数字化迎来窗口期</div>
+
+<div class="card" style="margin-bottom:20px;">
+  <div class="policy-item">
+    <div class="policy-year">2024.10</div>
+    <div><div class="policy-title">《关于建设高质量户外运动目的地的指导意见》— 国务院办公厅</div><div class="policy-desc">明确加快户外运动目的地建设，提升安全保障能力，支持体育基础设施投融资。</div></div>
+  </div>
+  <div class="policy-item">
+    <div class="policy-year">2024.10</div>
+    <div><div class="policy-title">《关于释放体育消费潜力进一步推进体育产业高质量发展的意见》— 国务院办公厅</div><div class="policy-desc">户外运动被纳入体育消费重点领域，户外安全培训与服务体系获政策背书。</div></div>
+  </div>
+  <div class="policy-item">
+    <div class="policy-year">2024–25</div>
+    <div><div class="policy-title">《关于金融支持体育产业高质量发展的指导意见》— 国家发改委、人民银行、体育总局</div><div class="policy-desc">户外运动投融资总额约2.76亿元，占体育投融资总额的27.47%，为历年最高占比。</div></div>
+  </div>
+  <div class="policy-item">
+    <div class="policy-year">2026.03</div>
+    <div><div class="policy-title">国务院安委会办公室紧急通报 — 强化户外活动安全风险防范</div><div class="policy-desc">2025年事故激增后，要求强化户外活动安全风险防范，推动"人防+技防"体系建设，明确提及<strong>智能预警平台</strong>。</div></div>
+  </div>
+</div>
+
+<div class="h2">三大市场机会</div>
+<div class="grid-3" style="margin-bottom:40px;">
+  <div class="feature-card">
+    <div class="feature-icon" style="background:var(--sage-light);">🌲</div>
+    <div class="feature-title">离线急救：4亿参与者，零覆盖</div>
+    <div class="feature-body">2025年473起事故，山地场景占超八成，而山地恰是信号盲区最集中的场景。当前市场上无任何产品能在零信号环境中提供语音引导式急救指导。<br><br><span class="tag tag-sage">目标用户约3000–5000万</span></div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon" style="background:var(--sky-light);">🏢</div>
+    <div class="feature-title">B端合规：监管收紧倒逼采购</div>
+    <div class="feature-body">2025年起，多省市明确追偿救援费用（浙江立法、新疆收费制度）；国务院安委会发布紧急通报，研学机构和俱乐部面临空前合规压力。<br><br><span class="tag tag-sky">研学机构约5万家 · 俱乐部约3万家</span></div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon" style="background:var(--earth-light);">🏛️</div>
+    <div class="feature-title">G端基建：政策驱动采购开闸</div>
+    <div class="feature-body">国务院明确支持户外安全智能预警平台建设，中探协建议在川西、秦岭等热门区域建立智慧急救驿站网络。<br><br><span class="tag tag-earth">74家国家体育旅游示范基地为优先突破口</span></div>
+  </div>
+</div>
+
+<!-- ════════════════ 产品 ════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Section 03</div>
+  <div class="chapter-title">产品与服务 · 三层服务体系</div>
+</div>
+
+<div class="section-intro" style="padding-top:40px;">
+  <div class="section-lead">山野医道围绕户外安全的完整时间轴，构建"行前风险感知 → 日常积分留存 → 离线AI急救"三层产品架构。高频工具解决获客与留存，低频刚需建立不可替代的核心壁垒。</div>
+</div>
+
+<div class="card" style="margin-bottom:24px;padding:24px 32px;">
+  <div style="display:flex;align-items:center;gap:0;flex-wrap:wrap;font-size:13px;">
+    <span style="background:var(--paper-warm);border:1px solid var(--border);padding:8px 16px;border-radius:6px;color:var(--ink-soft);font-weight:500;">出发前</span>
+    <span style="color:var(--border);padding:0 8px;font-size:18px;">→</span>
+    <span style="background:var(--sage-light);border:1px solid rgba(61,107,82,0.2);padding:8px 16px;border-radius:6px;color:var(--sage);font-weight:600;">行前风险感知</span>
+    <span style="color:var(--border);padding:0 8px;font-size:18px;">→</span>
+    <span style="background:var(--gold-light);border:1px solid rgba(176,125,46,0.2);padding:8px 16px;border-radius:6px;color:var(--gold);font-weight:600;">日常积分社群</span>
+    <span style="color:var(--border);padding:0 8px;font-size:18px;">→</span>
+    <span style="background:var(--alert-light);border:1px solid rgba(192,57,43,0.2);padding:8px 16px;border-radius:6px;color:var(--alert);font-weight:600;">离线AI急救</span>
+    <span style="color:var(--border);padding:0 8px;font-size:18px;">→</span>
+    <span style="background:var(--paper-warm);border:1px solid var(--border);padding:8px 16px;border-radius:6px;color:var(--ink-soft);font-weight:500;">救援到达</span>
+  </div>
+</div>
+
+<div class="h2">第一层：行前风险感知</div>
+<div style="margin-bottom:8px;"><span class="tag tag-sage">中高频触达</span> <span class="tag tag-ink">获客引擎</span></div>
+<p style="color:var(--ink-soft);font-size:14px;margin-bottom:20px;">用户每次进山前的必查工具，养成"出发前打开山野医道扫一遍"的使用习惯。</p>
+
+<div class="grid-3" style="margin-bottom:40px;">
+  <div class="feature-card">
+    <div class="feature-icon" style="background:var(--earth-light);">⭐</div>
+    <div class="feature-title">危险地形预警</div>
+    <div class="feature-body">整合卫星影像与历史事故点位，自动标注滑坡区、悬崖边缘、无路段等危险地形，附近三年内事故记录摘要。<br><br><span class="tag tag-earth">UGC + 官方数据双源</span></div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon" style="background:var(--sky-light);">🌤️</div>
+    <div class="feature-title">实时气象叠加</div>
+    <div class="feature-body">逐小时降水、能见度、气温预报直接叠加在路线图层上，标出"高风险时段"并给出是否适合出发的综合评级。<br><br><span class="tag tag-sky">接入气象局API</span></div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon" style="background:var(--alert-light);">📡</div>
+    <div class="feature-title">手机信号盲区提示</div>
+    <div class="feature-body">整合三大运营商信号覆盖数据与用户实测反馈，在路线上标注进入盲区的具体位置和预计持续里程。<br><br><span class="tag tag-alert">核心安全提示</span></div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon" style="background:var(--sage-light);">🗺️</div>
+    <div class="feature-title">地形风险图层</div>
+    <div class="feature-body">基于DEM高程数据计算坡度、走向、落差，生成可视化色阶风险图层，用户可与离线地图叠加查看。<br><br><span class="tag tag-sage">离线可用</span></div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon" style="background:var(--sage-light);">📊</div>
+    <div class="feature-title">路线风险评估</div>
+    <div class="feature-body">对选定路线输出综合风险评级（低/中/高/极高），分段标注医疗资源接驳点、直升机降落坪位置、最近救援站距离。<br><br><span class="tag tag-sage">B端合规存档功能</span></div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon" style="background:var(--gold-light);">📄</div>
+    <div class="feature-title">一键行前安全存档</div>
+    <div class="feature-body">自动生成包含路线风险评估、紧急联系人、医疗信息的PDF存档，支持B端机构法律免责凭证导出。<br><br><span class="tag tag-gold">B端付费转化核心</span></div>
+  </div>
+</div>
+
+<div class="h2">第二层：安全知识社区与积分体系</div>
+<p style="color:var(--ink-soft);font-size:14px;margin-bottom:20px;">通过"损失厌恶"设计和社交绑定，将低频场景转化为高频活跃，培养用户对安全知识的长期习惯。</p>
+
+<div class="grid-3" style="margin-bottom:40px;">
+  <div class="feature-card">
+    <div class="feature-icon" style="background:var(--earth-light);">🔥</div>
+    <div class="feature-title">连续答题积分</div>
+    <div class="feature-body">每日一道场景化急救题，连续答题天数以可视化火焰计数器展示，中断归零。段位与认证折扣绑定，使断签代价从情感延伸至实际利益损失。<br><br><span class="tag tag-earth">对标 Duolingo，D30留存目标 >35%</span></div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon" style="background:var(--sage-light);">👥</div>
+    <div class="feature-title">小队积分池</div>
+    <div class="feature-body">用户组建"进山小队"，任何成员的UGC贡献均计入公共积分池，将个体留存转化为群体留存。解散小队意味着放弃积累资产。<br><br><span class="tag tag-sage">K因子目标 >1.2</span></div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon" style="background:var(--sky-light);">🏅</div>
+    <div class="feature-title">山野安全档案</div>
+    <div class="feature-body">用户积累的出行轨迹、急救掌握度评级、UGC贡献量汇聚成"山野安全档案"，不可导出、不可迁移，构成最强护城河。<br><br><span class="tag tag-sky">社交货币 · 转换成本极高</span></div>
+  </div>
+</div>
+
+<div class="h2">第三层：离线AI急救（核心壁垒）</div>
+<div class="risk-callout" style="margin-bottom:20px;">
+  <p><strong>核心价值主张：</strong>"救援到达前的唯一医生"——被困、受伤、无信号，在等待救援的2–4小时空窗期内，山野医道是唯一能给出专业步骤指导的工具。</p>
+</div>
+
+<div class="insight" style="margin-bottom:40px;">
+  <div class="insight-label">技术壁垒</div>
+  <p>端侧离线AI模型，<strong>无需网络</strong>即可运行；语音引导式急救指导，任何人在最慌乱的时候都能照着做；内容依据 WMAI/AHA 专业标准，由执业医师审核。专利申请中，模型完成后无法快速复制。</p>
+</div>
+
+<!-- ════════════════ 竞品分析 ════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Section 04</div>
+  <div class="chapter-title">竞品分析 · 唯一性切入机会</div>
+</div>
+
+<div class="section-intro" style="padding-top:40px;">
+  <div class="section-lead">调研维度：产品功能、商业模式、用户痛点、差异化机会。核心结论：当前市场在"信号盲区内的医疗指导"这一场景存在系统性空白，山野医道具备唯一性切入机会。</div>
+</div>
+
+<div class="grid-3" style="margin-bottom:32px;">
+  <div class="comp-card">
+    <div class="comp-head" style="background:var(--sage-light);">
+      <div class="comp-type" style="color:var(--sage);">A类 · 工具巨头</div>
+      <div class="comp-name">两步路 / 六只脚</div>
+    </div>
+    <div class="comp-body">
+      <div class="comp-row"><div class="comp-icon" style="color:var(--sage);">✓</div><div>数千万条精华轨迹，国内最大户外轨迹数据库</div></div>
+      <div class="comp-row"><div class="comp-icon" style="color:var(--sage);">✓</div><div>离线地图、约伴、装备商城、社区完整</div></div>
+      <div class="comp-row"><div class="comp-icon" style="color:var(--alert);">✗</div><div>仅有"紧急呼救"按钮=发坐标，零医疗指导</div></div>
+      <div class="comp-row"><div class="comp-icon" style="color:var(--alert);">✗</div><div>路线无风险分级，无医疗资源接驳点提示</div></div>
+      <div class="comp-opp">机会：他们解决"迷路"，我们解决"受伤"——避开地图数据正面竞争。</div>
+    </div>
+  </div>
+  <div class="comp-card">
+    <div class="comp-head" style="background:var(--sky-light);">
+      <div class="comp-type" style="color:var(--sky);">B类 · 专业权威</div>
+      <div class="comp-name">红十字会 / WMAI</div>
+    </div>
+    <div class="comp-body">
+      <div class="comp-row"><div class="comp-icon" style="color:var(--sage);">✓</div><div>证书公信力极高，户外领队必修，行业标准</div></div>
+      <div class="comp-row"><div class="comp-icon" style="color:var(--sage);">✓</div><div>内容专业权威，知识体系完整</div></div>
+      <div class="comp-row"><div class="comp-icon" style="color:var(--alert);">✗</div><div>重线下：集中在大城市，须到场2–5天</div></div>
+      <div class="comp-row"><div class="comp-icon" style="color:var(--alert);">✗</div><div>价格高：WMAI课程约3000–8000元/人</div></div>
+      <div class="comp-row"><div class="comp-icon" style="color:var(--alert);">✗</div><div>无离线工具，在事故现场不可用</div></div>
+      <div class="comp-opp">机会：与其对抗，不如互补。引用其知识体系，申请联合认证——他们是我们的背书来源。</div>
+    </div>
+  </div>
+  <div class="comp-card">
+    <div class="comp-head" style="background:var(--earth-light);">
+      <div class="comp-type" style="color:var(--earth);">C类 · 底层基建</div>
+      <div class="comp-name">华为北斗 / 苹果SOS</div>
+    </div>
+    <div class="comp-body">
+      <div class="comp-row"><div class="comp-icon" style="color:var(--sage);">✓</div><div>无信号区卫星发送位置，解决"喊救命"问题</div></div>
+      <div class="comp-row"><div class="comp-icon" style="color:var(--alert);">✗</div><div>苹果SOS：中国大陆地区基本不可用</div></div>
+      <div class="comp-row"><div class="comp-icon" style="color:var(--alert);">✗</div><div>华为北斗：仅能单向发文字，森林峡谷效果差</div></div>
+      <div class="comp-row"><div class="comp-icon" style="color:var(--alert);">✗</div><div>均不提供任何急救指导——空窗期未被覆盖</div></div>
+      <div class="comp-opp">机会：他们是"救援请求链"，我们是"生存守护符"——互补而非替代。</div>
+    </div>
+  </div>
+</div>
+
+<div class="h2">用户真实痛点（来自App Store、8264论坛、小红书）</div>
+
+<div class="quote-card">
+  <div class="quote-text">"我队友扭伤踝关节，打开两步路，找了两分钟没找到任何急救提示，只有个发定位的按钮。山上没信号，根本发不出去。最后凭感觉处理的，不知道对不对。"</div>
+  <div class="quote-source">来源：两步路 App Store 差评 · 事故场景 · 医疗指导空白</div>
+  <div class="quote-arrow">→ 核心需求：信号盲区内，有人告诉我现在该做什么</div>
+</div>
+
+<div class="quote-card">
+  <div class="quote-text">"领队带着二十人进山，出发前没有人系统告知这条路哪段最危险、什么时候容易起雾。到了关键位置才发现有滑坡痕迹，当时已经没有退路了。"</div>
+  <div class="quote-source">来源：8264论坛 · 2024年帖子 · 行前风险盲区 · 领队痛点</div>
+  <div class="quote-arrow">→ 核心需求：行前有一份这条路的"风险说明书"，按位置标出危险点</div>
+</div>
+
+<div class="quote-card">
+  <div class="quote-text">"去学了红十字会急救课，2800块钱，在市中心上了两天课。然后进山，发现在那个环境里根本记不起来课上学的步骤，手机没信号，什么参考都没有。钱白花了。"</div>
+  <div class="quote-source">来源：小红书 · 徒步用户评论 · 知识无法转化 · 即时指导缺失</div>
+  <div class="quote-arrow">→ 核心需求：在需要的时候有人一步步引导我做，而不只是课堂上讲过</div>
+</div>
+
+<div class="insight" style="margin-bottom:40px;">
+  <div class="insight-label">三个瞬间的共同指向</div>
+  <p>三个最高频痛点都指向同一个场景：<strong>无网络 · 有伤情 · 不知道做什么</strong>。这正是山野医道离线AI急救的唯一性价值。没有一款现有产品真正覆盖这个场景。</p>
+</div>
+
+<!-- ════════════════ 营销策略 ════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Section 05</div>
+  <div class="chapter-title">营销策略 · 增长飞轮与获客路径</div>
+</div>
+
+<div class="section-intro" style="padding-top:40px;">
+  <div class="section-lead">我们的营销策略与产品三层体系完全咬合——行前风险感知是获客入口，安全积分社群是留存引擎，离线AI急救是付费转化的核心动机。</div>
+</div>
+
+<div class="kpi-grid" style="margin-bottom:32px;">
+  <div class="kpi-card">
+    <div class="kpi-num">5万</div>
+    <div class="kpi-label">注册用户目标</div>
+    <div class="kpi-period">上线后12个月</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-num">35%</div>
+    <div class="kpi-label">次月留存率目标</div>
+    <div class="kpi-period">积分体系驱动</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-num">8家</div>
+    <div class="kpi-label">B端签约客户</div>
+    <div class="kpi-period">首年目标</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-num">8%</div>
+    <div class="kpi-label">C端付费转化率</div>
+    <div class="kpi-period">12个月滚动</div>
+  </div>
+</div>
+
+<div class="h2">C端获客策略</div>
+<div class="grid-2" style="margin-bottom:24px;">
+  <div class="card-accent">
+    <div class="h3">场景预装：装备吊牌获客</div>
+    <p style="font-size:13.5px;color:var(--ink-soft);">与户外装备品牌合作，在装备吊牌/包装预装二维码。用户购买装备后自然下载，CAC约¥3/人。无需付费买量，触达精准场景用户。</p>
+    <div style="margin-top:12px"><span class="tag tag-sage">CAC ≈ ¥3/人</span></div>
+  </div>
+  <div class="card-accent">
+    <div class="h3">内容营销：小红书/抖音矩阵</div>
+    <p style="font-size:13.5px;color:var(--ink-soft);">发布"30秒急救系列"、路线风险解析等内容，利用户外爱好者社区的强口碑属性，实现自然裂变增长。</p>
+    <div style="margin-top:12px"><span class="tag tag-sky">CAC ≈ ¥8/人</span></div>
+  </div>
+</div>
+
+<div class="h2">B端销售策略：合规刚需驱动</div>
+<p style="color:var(--ink-soft);font-size:14px;margin-bottom:16px;">B端客户的购买决策不是"我想要更安全"，而是"我必须证明我尽了安全责任"。</p>
+
+<table>
+  <thead><tr><th>客户类型</th><th>核心痛点</th><th>我们的卖点</th><th style="text-align:right">年费估算</th></tr></thead>
+  <tbody>
+    <tr><td>中小学研学机构 <span class="tag tag-sage">优先</span></td><td>出事担责、家长投诉</td><td>行前安全存档PDF · 一键生成免责凭证</td><td class="td-num">3,000–8,000元/年</td></tr>
+    <tr><td>专业户外俱乐部 <span class="tag tag-sage">优先</span></td><td>领队资质参差、合规压力</td><td>领队认证体系 · 团员安全档案后台</td><td class="td-num">5,000–15,000元/年</td></tr>
+    <tr><td>高校户外社团</td><td>校方审批门槛高</td><td>出行风险报告 · 校方可查安全档案</td><td class="td-num">1,000–3,000元/年</td></tr>
+    <tr><td>景区管委会（G端）</td><td>游客事故舆情</td><td>离线急救驿站系统 · 区域风险看板</td><td class="td-num">项目制 10万+</td></tr>
+  </tbody>
+</table>
+
+<div class="timeline" style="margin:32px 0 40px;">
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-label">第1–6个月 · 冷启动</div>
+    <div class="tl-title">种子用户 + 样板客户</div>
+    <div class="tl-body">复旦登山协会、8264核心用户作为首批种子用户；签约3家户外俱乐部作为B端样板；小红书内容矩阵启动，目标5000注册用户。</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-label">第7–12个月 · 规模化</div>
+    <div class="tl-title">品牌合作 + 内容爆发</div>
+    <div class="tl-body">启动户外品牌吊牌预装合作；抖音"30秒急救"系列发布；中国登山协会年会发言；目标5万注册用户，B端客户8家。</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot"></div>
+    <div class="tl-label">第13–24个月 · 飞轮成型</div>
+    <div class="tl-title">数据反哺 + 生态锁定</div>
+    <div class="tl-body">UGC路况数据量级突破，风险图谱精度显著提升；领队认证体系向行业标准靠拢；G端景区项目首单落地；C端付费订阅稳定在8%以上。</div>
+  </div>
+</div>
+
+<!-- ════════════════ 团队 ════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Section 06</div>
+  <div class="chapter-title">执行团队 · 投资就是投人</div>
+</div>
+
+<div class="section-intro" style="padding-top:40px;">
+  <div class="section-lead">山野医道由来自复旦大学的跨学科精英团队创立：临床医学、计算机、经济学与设计四个维度的能力在同一支队伍中无缝咬合。</div>
+</div>
+
+<div class="grid-4" style="margin-bottom:32px;">
+  <div class="stat-hero"><div class="stat-hero-num">6</div><div class="stat-hero-label">核心成员<br>医学/CS/商科/设计</div></div>
+  <div class="stat-hero"><div class="stat-hero-num">3×</div><div class="stat-hero-label">国家奖学金<br>获得者</div></div>
+  <div class="stat-hero"><div class="stat-hero-num">¥15万</div><div class="stat-hero-label">复旦云锋基金<br>已获资助</div></div>
+  <div class="stat-hero"><div class="stat-hero-num">金奖</div><div class="stat-hero-label">中国国际大学生<br>创新大赛上海赛区</div></div>
+</div>
+
+<div class="h2">核心创始团队</div>
+<div class="grid-2" style="margin-bottom:24px;">
+  <div class="member-card founder">
+    <div class="founder-badge">创始人 · 技术负责人</div>
+    <div class="member-header">
+      <div class="member-avatar av-sage">陈</div>
+      <div>
+        <div class="member-name">陈攀丞</div>
+        <div class="member-role">创始人 · 技术负责人</div>
+        <div class="member-dept">临床医学（八年制）· 基础医学院 · 大四</div>
+      </div>
+    </div>
+    <div style="margin-bottom:12px;display:flex;flex-wrap:wrap;gap:4px;">
+      <span class="tag tag-sage">连续四年专业第一</span>
+      <span class="tag tag-sage">国家奖学金 ×2</span>
+      <span class="tag tag-sky">牛津大学深度学习 A</span>
+      <span class="tag tag-earth">卿枫学者（优秀结项）</span>
+    </div>
+    <div class="member-body">医学深度认知与AI技术能力的稀有交集。修读牛津大学奥利尔学院"Symbolic Methods in AI"，成绩等第A+；主导2项校级FDUROP科研项目。上海市首届学术英语演讲赛一等奖。</div>
+    <div class="member-highlight">🏆 研究成果被国际顶级会议ASCO（美国临床肿瘤学会年会）接收</div>
+  </div>
+
+  <div class="member-card founder" style="border-top-color:var(--sky);">
+    <div class="founder-badge" style="background:var(--sky);">联合创始人</div>
+    <div class="member-header">
+      <div class="member-avatar av-sky">李</div>
+      <div>
+        <div class="member-name">李金铭</div>
+        <div class="member-role">联合创始人 · 医疗AI创业者</div>
+        <div class="member-dept">肿瘤学博士 · 附属肿瘤医院</div>
+      </div>
+    </div>
+    <div style="margin-bottom:12px;display:flex;flex-wrap:wrap;gap:4px;">
+      <span class="tag tag-sage">连续两年国家奖学金</span>
+      <span class="tag tag-sky">复旦云锋基金 ¥15万</span>
+      <span class="tag tag-earth">慧睿阳医疗AI 联合创始人</span>
+    </div>
+    <div class="member-body">团队中唯一拥有完整创业闭环经验的成员。联合创立医疗AI公司慧睿阳，已获复旦云锋大健康创业基金15万人民币资助；担任复旦大学上医科创协会社长。</div>
+  </div>
+</div>
+
+<div class="grid-2" style="margin-bottom:24px;">
+  <div class="member-card">
+    <div class="member-header">
+      <div class="member-avatar av-earth">谢</div>
+      <div>
+        <div class="member-name">谢欣然</div>
+        <div class="member-role">产品负责人</div>
+        <div class="member-dept">临床医学（八年制）· 大四</div>
+      </div>
+    </div>
+    <div style="margin-bottom:12px;display:flex;flex-wrap:wrap;gap:4px;">
+      <span class="tag tag-sage">创新大赛上海赛区金奖</span>
+      <span class="tag tag-sage">卓越杯创业大赛一等奖</span>
+    </div>
+    <div class="member-body">用户洞察力与执行力的结合体，医学可视化协会副社长，天然理解医疗内容如何被普通用户接受。</div>
+  </div>
+
+  <div class="member-card">
+    <div class="member-header">
+      <div class="member-avatar av-gold">来</div>
+      <div>
+        <div class="member-name">来政聿</div>
+        <div class="member-role">商业负责人</div>
+        <div class="member-dept">经济学 · 经济学院 · 大二</div>
+      </div>
+    </div>
+    <div style="margin-bottom:12px;display:flex;flex-wrap:wrap;gap:4px;">
+      <span class="tag tag-sage">波士顿咨询 实习</span>
+      <span class="tag tag-sky">科尔尼 · 罗兰贝格</span>
+      <span class="tag tag-earth">IQVIA 生命科学</span>
+    </div>
+    <div class="member-body">大二学生拥有顶级战略咨询实习经历，覆盖波士顿咨询、科尔尼、罗兰贝格三家头部咨询公司，商业模式论证背后是真实项目的市场分析方法论。</div>
+  </div>
+</div>
+
+<div class="grid-2" style="margin-bottom:32px;">
+  <div class="member-card">
+    <div class="member-header">
+      <div class="member-avatar av-purple">高</div>
+      <div>
+        <div class="member-name">高云洁</div>
+        <div class="member-role">设计负责人</div>
+        <div class="member-dept">临床医学（儿科学方向）· 大三</div>
+      </div>
+    </div>
+    <div style="margin-bottom:12px;display:flex;flex-wrap:wrap;gap:4px;">
+      <span class="tag tag-sage">FDUROP 科研项目负责人</span>
+      <span class="tag tag-sky">《复旦医学生》责任编辑</span>
+    </div>
+    <div class="member-body">医学背景与内容创作力的组合，深刻理解医学知识如何面向大众呈现，摄影作品刊出于《中国研究生》杂志。</div>
+  </div>
+
+  <div class="member-card">
+    <div class="member-header">
+      <div class="member-avatar av-ink">汝</div>
+      <div>
+        <div class="member-name">汝思然</div>
+        <div class="member-role">前端开发负责人</div>
+        <div class="member-dept">软件工程 · 计算与智能创新学院 · 大二</div>
+      </div>
+    </div>
+    <div style="margin-bottom:12px;display:flex;flex-wrap:wrap;gap:4px;">
+      <span class="tag tag-sage">复旦拓客科技教育协会部长</span>
+      <span class="tag tag-sky">多段数模比赛经历</span>
+    </div>
+    <div class="member-body">团队最年轻的核心成员，大二即担任科技教育协会部长，组织并主导十余项社会实践项目。数学建模背景带来的结构化思维。</div>
+  </div>
+</div>
+
+<div class="card-dark" style="margin-bottom:40px;">
+  <div class="h3" style="color:rgba(255,255,255,0.7);margin-top:0;">给投资人的一句话</div>
+  <p style="font-size:14px;color:rgba(255,255,255,0.65);margin:0;line-height:1.9;">这不是一支"找方向"的学生团队。创始人是复旦医学院连续四年专业第一、牛津深度学习A级的人；联合创始人已有真实融资和运营经历；产品负责人已拿下全国级创业大赛金奖。我们在<strong style="color:#fff;">最关键的三个维度——医学深度、技术能力、商业落地——都找到了国内顶尖的人，并且这些人已经在一起工作了。</strong></p>
+</div>
+
+<!-- ════════════════ 财务计划 ════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Section 07</div>
+  <div class="chapter-title">财务计划 · 三年期财务规划（修订版 v2）</div>
+</div>
+
+<div class="section-intro" style="padding-top:40px;">
+  <div class="section-lead">以20万元天使轮融资为基础，精益团队小成本运营，覆盖FY2027–FY2029财年。总成本严格控制在5万元/年以内，所有预测数字均附第三方数据来源。</div>
+</div>
+
+<div class="h2">C端计费模式：按徒步天数付费</div>
+<div class="grid-3" style="margin-bottom:32px;">
+  <div class="price-card">
+    <div class="price-label">单日通行证</div>
+    <div class="price-num">¥3 <span style="font-size:16px;color:var(--ink-soft);">/ 天</span></div>
+    <div class="price-sub">解锁当日全功能：离线AI急救、实时风险图层、路况报告生成</div>
+  </div>
+  <div class="price-card" style="border:1.5px solid var(--sage);">
+    <div class="price-label">周末包（3天）</div>
+    <div class="price-num" style="color:var(--sage);">¥8 <span style="font-size:16px;color:var(--ink-soft);">/ 3天</span></div>
+    <div class="price-sub">折合¥2.67/天，覆盖标准双休日出行场景</div>
+  </div>
+  <div class="price-card">
+    <div class="price-label">假期包（7天）</div>
+    <div class="price-num">¥15 <span style="font-size:16px;color:var(--ink-soft);">/ 7天</span></div>
+    <div class="price-sub">折合¥2.14/天，五一、十一黄金周主打套餐</div>
+  </div>
+</div>
+
+<div class="h2">三情景收入预测（基准情景）</div>
+
+<div class="grid-3" style="margin-bottom:24px;">
+  <div class="card" style="border-left:3px solid var(--alert);">
+    <div style="font-size:12px;font-weight:600;color:var(--alert);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.1em;">保守情景</div>
+    <div style="font-family:'Noto Serif SC',serif;font-size:32px;font-weight:700;color:var(--ink);margin-bottom:6px;">¥2.8万</div>
+    <div style="font-size:12px;color:var(--ink-soft);">FY2027 总收入</div>
+    <div style="margin-top:12px;font-size:13px;color:var(--ink-soft);line-height:1.7;">付费用户200人 · B端2家 · 冷启动期</div>
+  </div>
+  <div class="card" style="border:1.5px solid var(--sage);">
+    <div style="font-size:12px;font-weight:600;color:var(--sage);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.1em;">基准情景 ★</div>
+    <div style="font-family:'Noto Serif SC',serif;font-size:32px;font-weight:700;color:var(--sage);margin-bottom:6px;">¥6.2万</div>
+    <div style="font-size:12px;color:var(--ink-soft);">FY2027 总收入</div>
+    <div style="margin-top:12px;font-size:13px;color:var(--ink-soft);line-height:1.7;">付费用户500人 · B端5家 · G端1个小型试点</div>
+  </div>
+  <div class="card" style="border-left:3px solid var(--sky);">
+    <div style="font-size:12px;font-weight:600;color:var(--sky);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.1em;">乐观情景</div>
+    <div style="font-family:'Noto Serif SC',serif;font-size:32px;font-weight:700;color:var(--ink);margin-bottom:6px;">¥11.5万</div>
+    <div style="font-size:12px;color:var(--ink-soft);">FY2027 总收入</div>
+    <div style="margin-top:12px;font-size:13px;color:var(--ink-soft);line-height:1.7;">付费用户1000人 · B端10家 · G端2个试点</div>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr><th>收入来源</th><th>驱动指标假设</th><th style="text-align:right">FY2027</th><th style="text-align:right">FY2028</th><th style="text-align:right">FY2029</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>C端 · 按天计费</td><td style="font-size:12px;color:var(--ink-soft);">500付费用户×人均¥36/年</td><td class="td-num">¥1.80万</td><td class="td-num">¥4.80万</td><td class="td-num">¥10.80万</td></tr>
+    <tr><td>C端 · 急救认证课程</td><td style="font-size:12px;color:var(--ink-soft);">50人×¥400元客单价</td><td class="td-num">¥2.00万</td><td class="td-num">¥4.00万</td><td class="td-num">¥7.00万</td></tr>
+    <tr><td>B端 · SaaS授权年费</td><td style="font-size:12px;color:var(--ink-soft);">5家×¥3,000元/年</td><td class="td-num">¥1.50万</td><td class="td-num">¥3.60万</td><td class="td-num">¥7.20万</td></tr>
+    <tr><td>B端 · 领队认证授权</td><td style="font-size:12px;color:var(--ink-soft);">30名领队×¥150元/证书</td><td class="td-num">¥0.45万</td><td class="td-num">¥1.05万</td><td class="td-num">¥2.40万</td></tr>
+    <tr><td>G端 · 驿站系统集成</td><td style="font-size:12px;color:var(--ink-soft);">1个小型试点×¥5万</td><td class="td-num">¥0.50万</td><td class="td-num">¥2.50万</td><td class="td-num">¥6.00万</td></tr>
+    <tr class="tr-total"><td>合计总收入</td><td></td><td class="td-num">¥6.25万</td><td class="td-num">¥15.95万</td><td class="td-num">¥33.40万</td></tr>
+    <tr class="tr-total"><td>同比增速</td><td></td><td class="td-num">—</td><td class="td-num" style="color:var(--sage);">+155%</td><td class="td-num" style="color:var(--sage);">+109%</td></tr>
+  </tbody>
+</table>
+
+<div class="h2">单位经济模型（Unit Economics）</div>
+<div class="grid-3" style="margin-bottom:24px;">
+  <div class="ue-card">
+    <div class="ue-label">C端 · 单用户获客成本 CAC</div>
+    <div class="ue-num">¥3–12元</div>
+    <div class="ue-sub">吊牌预装≈¥3/人；内容营销口碑≈¥8/人；无付费买量</div>
+  </div>
+  <div class="ue-card">
+    <div class="ue-label">C端 · 用户生命周期价值 LTV</div>
+    <div class="ue-num">¥108元</div>
+    <div class="ue-sub">付费用户年均¥36×3年平均留存</div>
+  </div>
+  <div class="ue-card" style="border:1.5px solid var(--sage);">
+    <div class="ue-label">C端 · LTV/CAC 比</div>
+    <div class="ue-num" style="color:var(--sage);">9–36x</div>
+    <div class="ue-sub">预装渠道36x，内容营销渠道13x，均超过3x健康基准</div>
+  </div>
+  <div class="ue-card">
+    <div class="ue-label">C端 · CAC 回收期</div>
+    <div class="ue-num">&lt;10天</div>
+    <div class="ue-sub">用户首次购买（¥8/3天套餐）即可覆盖内容营销CAC</div>
+  </div>
+  <div class="ue-card">
+    <div class="ue-label">B端 · LTV（3年）</div>
+    <div class="ue-num">¥9,000元</div>
+    <div class="ue-sub">¥3,000/年×3年（假设续费率75%）</div>
+  </div>
+  <div class="ue-card">
+    <div class="ue-label">B端 · LTV/CAC 比</div>
+    <div class="ue-num">~3x</div>
+    <div class="ue-sub">B端CAC约¥3,000（差旅+人力时间成本）</div>
+  </div>
+</div>
+
+<div class="h2">成本结构与融资用途</div>
+<table>
+  <thead><tr><th>成本项目</th><th>占比</th><th style="text-align:right">金额</th><th>主要内容</th></tr></thead>
+  <tbody>
+    <tr><td>产品研发</td><td><span class="tag tag-sky">40%</span></td><td class="td-num">¥8万</td><td style="font-size:13px;color:var(--ink-soft);">服务器年费、API调用、软著申请、工具订阅</td></tr>
+    <tr><td>市场推广</td><td><span class="tag tag-sage">30%</span></td><td class="td-num">¥6万</td><td style="font-size:13px;color:var(--ink-soft);">小红书/抖音内容矩阵、B端样板客户拜访差旅</td></tr>
+    <tr><td>团队建设</td><td><span class="tag tag-earth">20%</span></td><td class="td-num">¥4万</td><td style="font-size:13px;color:var(--ink-soft);">2名创始人×¥1,250/月×20个月，主要激励为股权</td></tr>
+    <tr class="tr-total"><td>运营 & 应急储备</td><td><span class="tag tag-ink">10%</span></td><td class="td-num">¥2万</td><td style="font-size:13px;color:var(--ink-soft);">服务器年费预付、工商注册、会计记账、应急备用金</td></tr>
+  </tbody>
+</table>
+
+<div class="insight">
+  <div class="insight-label">运营杠杆（基准情景）</div>
+  <p>成本结构几近刚性（¥5–7万/年），而收入从FY2027的<strong>¥6.25万</strong>增长至FY2029的<strong>¥33.4万</strong>，增幅+434%，同期总费用增幅仅+42%。运营杠杆比例约为<strong>10:1</strong>，FY2029每增加¥1收入边际成本仅约¥0.06元。</p>
+</div>
+
+<!-- ════════════════ 运营计划 ════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Section 08</div>
+  <div class="chapter-title">运营计划 · 可执行的完整路径</div>
+</div>
+
+<div class="section-intro" style="padding-top:40px;">
+  <div class="section-lead">将用户从"第一次打开"到"长期付费"拆解为五个阶段，每个阶段定义明确的健康指标、触发行为和运营干预动作。</div>
+</div>
+
+<div class="h2">用户生命周期管理</div>
+<div style="margin-bottom:32px;">
+  <div class="lc-stage">
+    <div class="lc-left"><div class="lc-stage-name" style="color:var(--sage);">获取</div><div class="lc-stage-en">Acquire</div></div>
+    <div class="lc-right">
+      <div><div class="lc-col-title">触发场景</div><div class="lc-col-val">装备吊牌扫码 / 营地入口二维码 / 俱乐部领队推荐 / 小红书路线攻略</div></div>
+      <div><div class="lc-col-title">健康指标</div><div class="lc-col-val">注册完成率 >60%<br>首次路线查询率 >70%</div></div>
+      <div><div class="lc-col-title">运营动作</div><div class="lc-col-val">注册即送50积分 + 首次路线评估引导弹窗</div></div>
+    </div>
+  </div>
+  <div class="lc-stage">
+    <div class="lc-left"><div class="lc-stage-name" style="color:var(--gold);">激活</div><div class="lc-stage-en">Activate</div></div>
+    <div class="lc-right">
+      <div><div class="lc-col-title">定义</div><div class="lc-col-val">注册后7天内：1次路线查询 + 3次答题 + 1次UGC反馈</div></div>
+      <div><div class="lc-col-title">健康指标</div><div class="lc-col-val">7日激活率目标 >40%<br>行业基准约15–20%</div></div>
+      <div><div class="lc-col-title">运营动作</div><div class="lc-col-val">D3未答题触发Push；D5未查路线推送"本周热门危险路段"</div></div>
+    </div>
+  </div>
+  <div class="lc-stage">
+    <div class="lc-left"><div class="lc-stage-name" style="color:var(--sky);">留存</div><div class="lc-stage-en">Retain</div></div>
+    <div class="lc-right">
+      <div><div class="lc-col-title">核心钩子</div><div class="lc-col-val">连续答题积分 × 段位晋升 × 小队积分共享 × 每周路况简报</div></div>
+      <div><div class="lc-col-title">健康指标</div><div class="lc-col-val">D30留存 >35%<br>周活跃天数 >3天</div></div>
+      <div><div class="lc-col-title">运营动作</div><div class="lc-col-val">段位即将降级提醒 / 好友超越通知 / 季节性活动</div></div>
+    </div>
+  </div>
+  <div class="lc-stage">
+    <div class="lc-left"><div class="lc-stage-name" style="color:#6b52a8;">变现</div><div class="lc-stage-en">Revenue</div></div>
+    <div class="lc-right">
+      <div><div class="lc-col-title">付费触发点</div><div class="lc-col-val">积分达阈值推送升级 / 出行前离线地图包解锁提示</div></div>
+      <div><div class="lc-col-title">健康指标</div><div class="lc-col-val">付费转化率目标 8%<br>ARPU目标 ¥168/年</div></div>
+      <div><div class="lc-col-title">运营动作</div><div class="lc-col-val">首月订阅积分抵扣30元；年付立减40元</div></div>
+    </div>
+  </div>
+  <div class="lc-stage">
+    <div class="lc-left"><div class="lc-stage-name" style="color:var(--sage);">推荐</div><div class="lc-stage-en">Refer</div></div>
+    <div class="lc-right">
+      <div><div class="lc-col-title">裂变场景</div><div class="lc-col-val">分享路线风险报告 / 邀请队友组队 / 领队向团员推荐（B2B2C）</div></div>
+      <div><div class="lc-col-title">健康指标</div><div class="lc-col-val">K因子目标 >1.2<br>邀请转化率 >25%</div></div>
+      <div><div class="lc-col-title">运营动作</div><div class="lc-col-val">邀请人双向得积分；分享路线卡片带品牌水印</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="h2">法律风险规避</div>
+
+<div class="card" style="margin-bottom:32px;">
+  <div class="risk-row">
+    <div class="risk-icon" style="background:var(--alert-light);color:var(--alert);">医</div>
+    <div>
+      <div class="risk-name">急救内容医疗责任风险</div>
+      <div class="risk-desc">用户按照产品指导操作后仍发生伤亡，可能面临产品责任索赔。这是医疗类AI产品的首要法律风险。</div>
+    </div>
+    <div class="risk-response"><strong>三重防护：</strong>① 产品定位为"急救辅助参考工具"而非"医疗诊断设备"；② 急救内容依据WMAI/AHA标准，由执业医师审核并留存版本记录；③ 用户首次使用须签署知情同意书。</div>
+  </div>
+  <div class="risk-row">
+    <div class="risk-icon" style="background:var(--earth-light);color:var(--earth);">数</div>
+    <div>
+      <div class="risk-name">用户位置数据安全合规</div>
+      <div class="risk-desc">出行轨迹属于高敏感个人信息，受《个人信息保护法》《数据安全法》双重约束。</div>
+    </div>
+    <div class="risk-response"><strong>数据最小化原则：</strong>位置数据本地存储为主，上传前进行模糊化处理（精度降至100m）；完成App备案及等保2.0认证；聘请专职数据合规顾问。</div>
+  </div>
+  <div class="risk-row">
+    <div class="risk-icon" style="background:var(--sky-light);color:var(--sky);">证</div>
+    <div>
+      <div class="risk-name">资质认证体系法律效力</div>
+      <div class="risk-desc">认证若未获官方背书，可能被视为虚假宣传，引发B端机构后续投诉。</div>
+    </div>
+    <div class="risk-response"><strong>官方背书优先：</strong>早期与地方红十字会或中国登山协会签订"联合培训"协议；认证定名为"山野安全能力测评证书"（非官方医疗资质）；B端合同明确写明证书范围和免责条款。</div>
+  </div>
+  <div class="risk-row">
+    <div class="risk-icon" style="background:var(--sage-light);color:var(--sage);">监</div>
+    <div>
+      <div class="risk-name">监管政策不确定性</div>
+      <div class="risk-desc">AI医疗应用监管政策持续演进，可能影响核心功能的合法性。</div>
+    </div>
+    <div class="risk-response"><strong>合规弹性设计：</strong>产品功能采用模块化架构，监管收紧时可快速下线特定功能；持续跟踪国家卫健委、工信部相关政策动态；保持与行业协会的沟通渠道。</div>
+  </div>
+</div>
+
+<!-- ════════════════ 退出路径 ════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Section 09</div>
+  <div class="chapter-title">退出路径 · 对投资人的承诺兑现机制</div>
+</div>
+
+<div class="section-intro" style="padding-top:40px;">
+  <div class="section-lead">三条退出路径按照可行性和估值空间排序，每条路径都有明确的触发条件和时间窗口。</div>
+</div>
+
+<div class="grid-3" style="margin-bottom:32px;">
+  <div class="exit-card" style="border-top:2px solid var(--sage);">
+    <div class="exit-badge" style="background:var(--sage-light);color:var(--sage);">路径一 · 首选</div>
+    <div class="exit-title">战略并购：出售给户外工具巨头</div>
+    <div class="exit-body">两步路、六只脚等平台拥有千万级用户但缺乏安全纵深；我们拥有离线AI急救壁垒和B端合规数据资产，是其完善安全生态的最短路径。</div>
+    <div class="exit-trigger"><strong>触发条件：</strong>注册用户突破50万 + B端签约超30家 + 离线AI模型完成第二次迭代<br><br><strong>估值参考：</strong>用户数×¥50–100/用户 + B端SaaS 10–15x ARR</div>
+  </div>
+  <div class="exit-card">
+    <div class="exit-badge" style="background:var(--sky-light);color:var(--sky);">路径二 · 备选</div>
+    <div class="exit-title">战略融资：引入险企或大健康平台</div>
+    <div class="exit-body">积累足够体量的用户出行数据和事故相关数据后，户外专项险的定价能力将显著增强，平安健康、众安保险等险企有动力以战略融资形式换取数据接口。</div>
+    <div class="exit-trigger"><strong>触发条件：</strong>UGC路况数据库突破100万条 + 事故-气象相关性模型验证完成<br><br><strong>时间窗口：</strong>运营第24–36个月</div>
+  </div>
+  <div class="exit-card">
+    <div class="exit-badge" style="background:var(--earth-light);color:var(--earth);">路径三 · 长期</div>
+    <div class="exit-title">独立上市或新三板挂牌</div>
+    <div class="exit-body">以"户外安全数字化基础设施"定位在新三板挂牌，建立公众公司信用背书，进一步撬动G端政府采购资质和大型保险机构合作门槛。</div>
+    <div class="exit-trigger"><strong>适用条件：</strong>市场成熟度不足以支撑战略并购估值，但现金流已转正<br><br><strong>时间窗口：</strong>运营第36–60个月，作为兜底路径</div>
+  </div>
+</div>
+
+<div class="insight" style="margin-bottom:40px;">
+  <div class="insight-label">给潜在收购方的核心资产清单</div>
+  <p>任何一家户外工具巨头收购山野医道，实际上是在收购四样东西：<strong>离线AI急救算法</strong>（端侧模型，无法快速复制）、<strong>野外风险图谱数据库</strong>（UGC驱动，越用越精准）、<strong>B端认证体系</strong>（形成组织级客户锁定）、以及<strong>已被教育过的付费用户群</strong>（对安全工具付费意愿已验证）。这四样东西叠加在一起的重置成本，远高于收购价格。</p>
+</div>
+
+<!-- ════════════════ 数据来源 ════════════════ -->
+<div class="sep"></div>
+<div class="h2">数据来源索引</div>
+<div class="footnotes">
+  <div class="fn-item">① 《中国户外运动产业发展报告（2024–2025）》，国家体育总局体育经济司，2025年10月发布于2025中国户外运动产业大会（云南大理）</div>
+  <div class="fn-item">② 《中国户外运动产业发展报告（2023–2024）》，国家体育总局体育经济司，2024年10月发布，含同程旅行、小红书等平台数据</div>
+  <div class="fn-item">③ 《2023年度中国户外探险事故报告》，中国探险协会探险研究专业委员会，2024年1月发布</div>
+  <div class="fn-item">④ 《2024年度中国户外探险事故报告》，中国探险协会探险研究专业委员会，2025年1月发布</div>
+  <div class="fn-item">⑤ 《2025年度中国户外探险事故报告》，中国探险协会探险研究专业委员会，2026年1月发布；相关报道引自新华社、央广网、澎湃新闻（2026年4月）</div>
+</div>
+
+<div class="disclaimer">
+  <strong>免责声明：</strong>本财务计划所有预测数字均基于公开第三方数据与合理商业假设，不构成任何投资建议。实际结果可能因市场、政策、竞争环境等因素与预测存在重大差异。数字单位为万元人民币（CNY）。本版本为修订版 v2，主要修订项：融资额调整为¥20万、财年调整为FY2027–2029、C端改为按徒步天数计费模型、总成本上限调整为¥5万/年。
+</div>
+
+<div style="text-align:center;padding:60px 0 80px;color:var(--ink-faint);font-size:13px;letter-spacing:0.1em;">
+  山野医道 · 商业计划书 · 2026年4月<br>
+  <span style="font-size:11px;margin-top:6px;display:block;">CONFIDENTIAL · FUDAN UNIVERSITY</span>
+</div>
+
+</div><!-- /doc -->
+
+</body>
+</html>
